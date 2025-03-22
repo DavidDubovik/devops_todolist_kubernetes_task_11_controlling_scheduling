@@ -72,3 +72,26 @@ spec:
       resources:
         requests:
           storage: 2Gi
+    tolerations:
+    - key: "app"
+      operation: "?"
+      values: "?"
+      effect: "NoSchedule"
+    affinity:
+      antiAffinity:
+        nodeAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: ?
+                    operator: ?
+                    values:
+                      - ?
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: mysql
+                    operator: ?
+                    values:
+                      - ?

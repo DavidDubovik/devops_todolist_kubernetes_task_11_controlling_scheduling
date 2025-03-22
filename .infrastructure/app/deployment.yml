@@ -91,3 +91,21 @@ spec:
       - name: app-config-volume
         configMap:
           name: app-config
+      affinity:
+        antiAffinity:
+          nodeAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: todoapp
+                      operator: ?
+                      values:
+                        - ?
+        nodeAffinity:
+          PreferedDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: todoapp
+                    operator: ?
+                    values:
+                      - ?
