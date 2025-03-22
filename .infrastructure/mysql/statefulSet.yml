@@ -83,7 +83,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchExpressions:
-                  - key: ?
+                  - key: mysql
                     operator: ?
                     values:
                       - ?
