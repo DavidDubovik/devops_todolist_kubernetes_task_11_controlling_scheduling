@@ -92,20 +92,20 @@ spec:
         configMap:
           name: app-config
       affinity:
+        nodeAffinity:
+          PreferedDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - todoapp
         antiAffinity:
           nodeAntiAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
               - labelSelector:
                   matchExpressions:
-                    - key: todoapp
-                      operator: ?
+                    - key: app
+                      operator: In
                       values:
-                        - ?
-        nodeAffinity:
-          PreferedDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: todoapp
-                    operator: ?
-                    values:
-                      - ?
+                        - todoapp

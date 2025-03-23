@@ -83,15 +83,15 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchExpressions:
-                  - key: mysql
-                    operator: ?
+                  - key: app
+                    operator: Equal
                     values:
-                      - ?
+                      - mysql
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
-                  - key: mysql
-                    operator: ?
+                  - key: app
+                    operator: Equal
                     values:
-                      - ?
+                      - mysql
