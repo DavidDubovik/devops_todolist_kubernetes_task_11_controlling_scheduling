@@ -93,19 +93,20 @@ spec:
           name: app-config
       affinity:
         nodeAffinity:
-          PreferedDuringSchedulingIgnoredDuringExecution:
+          requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
-                  - key: app
+                  - key: "app"
                     operator: In
                     values:
-                      - todoapp
-        antiAffinity:
-          nodeAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              - labelSelector:
-                  matchExpressions:
-                    - key: app
-                      operator: In
-                      values:
-                        - todoapp
+                      - "todoapp"
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - "todoapp"
+              topologyKey: "kubernetes.io/hostname"
+                  
